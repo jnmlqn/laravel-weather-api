@@ -1,0 +1,1 @@
+* * * * * php /var/www/artisan weather:update >/dev/null 2>&1

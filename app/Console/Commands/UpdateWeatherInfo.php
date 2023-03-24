@@ -6,7 +6,7 @@ use App\Services\WeatherService;
 use Illuminate\Console\Command;
 use Log;
 
-class FetchWeatherInfo extends Command
+class UpdateWeatherInfo extends Command
 {
     /**
      * The name and signature of the console command.
@@ -20,7 +20,7 @@ class FetchWeatherInfo extends Command
      *
      * @var string
      */
-    protected $description = 'Fetch weather info for the following cities';
+    protected $description = 'Update weather info for the following cities';
 
     /**
      * @var WeatherService
