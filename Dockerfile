@@ -19,7 +19,8 @@ RUN apt-get update && apt-get install -y \
     unzip \
     git \
     curl \
-    libzip-dev
+    libzip-dev \
+    cron
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -49,3 +50,7 @@ EXPOSE 9000
 CMD ["php-fpm"]
 
 RUN composer install
+
+ADD voyager_weather_api_cron /etc/cron.d/voyager_weather_api_cron
+RUN crontab /etc/cron.d/voyager_weather_api_cron
+CMD ["cron", "-f"]
