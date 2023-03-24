@@ -14,6 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    \DB::table('voyager-weather-api')->get();
     return view('welcome');
 });
