@@ -27,6 +27,7 @@ class WeatherRepository
     public function createOrUpdateWeather(string $city): bool
     {
         $response = Http::get("https://goweather.herokuapp.com/weather/$city");
+        Log::info(sprintf('HerokuApp API response: %s', $response));
 
         if ($response->ok()) {
             $data = json_decode($response->body(), true);
@@ -42,7 +43,6 @@ class WeatherRepository
                     'updated_at' => Carbon::now()->toDateTimeString()
                 ]
             );
-
             Log::info(sprintf('Updated weather info for %s', $city));
 
             return true;

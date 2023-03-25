@@ -47,8 +47,6 @@ class UpdateWeatherInfo extends Command
     public function handle()
     {
         if (!$this->weatherService->createOrUpdateWeather()) {
-            Log::info('weather-info-updated');
-
             return 1;
         }
 
