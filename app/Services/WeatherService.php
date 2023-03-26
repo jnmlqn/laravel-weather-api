@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Weather;
 use App\Repositories\WeatherRepository;
+use Log;
 
 class WeatherService
 {
@@ -29,7 +30,7 @@ class WeatherService
 
         foreach ($cities as $city) {
             if (!$this->weatherRepository->createOrUpdateWeather($city)) {
-                return false;
+                Log::error(sprintf('Error updating weather info for %s', $city));
             }
         }
 

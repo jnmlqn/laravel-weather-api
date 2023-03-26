@@ -46,9 +46,7 @@ class UpdateWeatherInfo extends Command
      */
     public function handle()
     {
-        if (!$this->weatherService->createOrUpdateWeather()) {
-            return 1;
-        }
+        $this->weatherService->createOrUpdateWeather();
 
         return 0;
     }

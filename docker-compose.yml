@@ -15,7 +15,7 @@ services:
     volumes:
       - ./:/var/www
       - ./.env.example:/var/www/.env
-      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
+      - ./docker-services/php/local.ini:/usr/local/etc/php/conf.d/local.ini
       - /var/www/vendor/
     networks:
       - app-network
@@ -30,7 +30,7 @@ services:
       - "443:443"
     volumes:
       - ./:/var/www
-      - ./nginx/conf.d/:/etc/nginx/conf.d/
+      - ./docker-services/nginx/conf.d/:/etc/nginx/conf.d/
     networks:
       - app-network
 
@@ -50,7 +50,7 @@ services:
       SERVICE_NAME: mysql
     volumes:
       - mysql:/var/lib/mysql/
-      - ./mysql/my.cnf:/etc/mysql/my.cnf
+      - ./docker-services/mysql/my.cnf:/etc/mysql/my.cnf
     networks:
       - app-network
 

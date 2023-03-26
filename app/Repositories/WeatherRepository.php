@@ -48,8 +48,6 @@ class WeatherRepository
             return true;
         }
 
-        Log::error(sprintf('Error updating weather info for %s', $city));
-
         return false;
     }
 
