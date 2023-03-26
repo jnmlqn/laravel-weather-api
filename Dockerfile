@@ -34,7 +34,7 @@ RUN touch /var/www/storage/logs/laravel.log
 RUN composer install --ignore-platform-reqs
 RUN php artisan cache:clear
 RUN php artisan config:clear
-RUN echo "* * * * * root php /var/www/artisan schedule:run >> /var/log/cron.log 2>&1" >> /etc/crontab
+RUN echo "* * * * * root php /var/www/artisan migrate && php /var/www/artisan schedule:run >> /var/log/cron.log 2>&1" >> /etc/crontab
 RUN touch /var/log/cron.log
 
 CMD bash -c "cron && php-fpm"
