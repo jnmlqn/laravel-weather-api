@@ -5,7 +5,8 @@
 	</li>
 	<li>
 		To generate initial weather information for the Cities,
-		<br>you can execute this command: <b>docker exec -it app bash -c "php artisan migrate && php artisan weather:update"</b>,
+		<br>you can execute this command:
+        <br><b>docker exec -it app bash -c "php artisan migrate && php artisan weather:update"</b>,
 		<br>or wait 15 minutes for the table to be populated by initial data
 	</li>
 	<li>
